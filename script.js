@@ -4,6 +4,7 @@ const titleElement = document.querySelector(".title");
 const buttonsContainer = document.querySelector(".buttons");
 const yesButton = document.querySelector(".btn--yes");
 const noButton = document.querySelector(".btn--no");
+const catImg = document.querySelector(".cat-img");
 
 const MAX_IMAGES = 5;
 
@@ -26,7 +27,7 @@ noButton.addEventListener("click", function () {
 });
 
 function handleYesClick() {
-  titleElement.innerHTML = "Sời Thạch biết mà, Thạch đẹp trai số 1 11a1 mà🤪🤪🤪";
+  titleElement.innerHTML = "Sời Thạch biết mà, Thạch đẹp trai số 1 11a1 mà😄😄😄😄😄😄😄😄😄";
   buttonsContainer.classList.add("hidden");
   changeImage("yes");
 }
@@ -51,6 +52,18 @@ function generateMessage(noCount) {
 
   const messageIndex = Math.min(noCount, messages.length - 1);
   return messages[messageIndex];
+}
+
+function changeImage(image) {
+  // Nếu image là số = 0 thì đổi ảnh từ thư mục img
+  // Nếu image <= 0 hoặc lặp lại vượt số lượng ảnh, giữ GIF mặc định
+  const defaultGif = "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif";
+
+  if (image = 0 && image <= 3) { // giả sử bạn có 3 ảnh trong thư mục img
+    catImg.src = `img/cat-${image}.jpg`;
+  } else {
+    catImg.src = defaultGif;
+  }
 }
 
 function updateNoButtonText() {
